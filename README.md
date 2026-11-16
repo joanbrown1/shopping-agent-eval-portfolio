@@ -1,48 +1,47 @@
-# Shopping Agent Evaluation Portfolio
+# Shopping Agent Eval Practice
 
-**Standalone portfolio project** for AI evaluation / rubric review on **shopping and product-selection agents**.
+I put this together to practice reviewing AI shopping agents — the kind that search a catalog and recommend a product.
 
-Multiple scenarios under one domain — not a single prompt/answer demo. Each scenario includes prompt, catalog/tool fixtures, simulated transcript, defective draft rubric, full reviewer audit, and repaired rubric.
+The idea is simple: an agent gets a user request, looks at product data, and answers. A draft rubric grades that answer. Sometimes the rubric is wrong, sometimes the model is wrong, and sometimes both are. I walk through each case, decide what actually went wrong, and fix the rubric where I can.
 
-> **Honesty note:** All catalogs, tool outputs, and transcripts are **synthetic fixtures** for portfolio practice. Not confidential employer work or live production grading.
+Everything here is made up for practice (fake catalogs, fake transcripts). It’s not real company work.
 
-## Scenarios
+## What’s inside
 
-| ID | Scenario | Draft grader issue | Reviewer call |
-|---|---|---|---|
-| [`01_school_laptop`](scenarios/01_school_laptop/) | Multi-constraint laptop pick | Unfair FAIL (invented SSD/brand rules) | `REPAIR` + `NO_MODEL_ERROR` |
-| [`02_noise_cancelling_headphones`](scenarios/02_noise_cancelling_headphones/) | ANC + battery + wired + budget | PASS on transparency≠ANC | `REPAIR` + `MODEL_ERROR` |
-| [`03_phone_carrier_compat`](scenarios/03_phone_carrier_compat/) | Carrier compatibility gate | PASS on unlocked≠compatible | `REWORK_TASK` + `MODEL_ERROR` |
-| [`04_school_supply_budget_cart`](scenarios/04_school_supply_budget_cart/) | Multi-SKU cart + shipping cap | PASS ignoring shipping | `REPAIR` + `MODEL_ERROR` |
+There are four shopping scenarios:
 
-## What’s in each scenario
+1. **[School laptop](scenarios/01_school_laptop/)** — User wants a laptop under clear limits (price, RAM, SSD, weight, in stock). The agent picks a valid one, but the grader fails it for rules the user never asked for (like “must be Apple” and a higher SSD minimum).
+2. **[Noise-cancelling headphones](scenarios/02_noise_cancelling_headphones/)** — User asks for real ANC, battery life, wired support, and a budget. The agent treats “transparency mode” as ANC and the draft grader lets it slide.
+3. **[Phone + carrier compatibility](scenarios/03_phone_carrier_compat/)** — User only wants a phone if Carrier Wave compatibility is actually checked. The agent assumes “unlocked” is enough and never runs the compatibility tool.
+4. **[School supply cart](scenarios/04_school_supply_budget_cart/)** — User needs a few items with a hard total that includes shipping. The agent gets a shipping quote, then ignores it and says the cart is within budget.
 
-```text
-task.md              # user prompt + agent-visible catalog/tools + validity rules
-transcript.md        # tool-use trace + draft automatic grade
-rubric_before.json   # defective draft criteria / contaminated answer key
-review.md            # criterion audit, counterfactuals, reviewer note
-rubric_after.json    # repaired criteria with source provenance
-```
+## How each scenario is set up
 
-## Quick start
+Every folder has the same files:
+
+- `task.md` — what the user asked for, and what product/tool data the agent could see
+- `transcript.md` — step-by-step what the agent did and what the draft grader said
+- `rubric_before.json` — the original grading criteria (with problems on purpose)
+- `review.md` — my notes on each criterion, plus what I’d change
+- `rubric_after.json` — the cleaned-up rubric
+
+If you want to try one yourself, read `task.md`, `transcript.md`, and `rubric_before.json` first. Write your own call, then compare with `review.md`.
+
+## Run the checker
 
 ```bash
 python3 validate.py
-# Then work any scenario blind: task → transcript → rubric_before → your verdict → compare review.md
 ```
 
-## Docs
+That just checks the folders and rubric files are set up correctly.
 
-- [`SKILLS.md`](SKILLS.md) — skill → evidence map for applications
-- [`METHODOLOGY.md`](METHODOLOGY.md) — review workflow
-- [`docs/criterion_quality_checklist.md`](docs/criterion_quality_checklist.md)
-- [`docs/decision_taxonomy.md`](docs/decision_taxonomy.md)
+## Other notes
 
-## Job-application blurb
-
-> Shopping-agent evaluation portfolio: four synthetic multi-constraint product scenarios covering unfair fails, feature-label drift, unverified compatibility claims, and shipping-inclusive cart budgets. Includes before/after rubrics, counterfactual grading, and a validation script.
+- [SKILLS.md](SKILLS.md) — what this project is meant to show
+- [METHODOLOGY.md](METHODOLOGY.md) — how I review a case
+- [docs/criterion_quality_checklist.md](docs/criterion_quality_checklist.md) — quick checklist for rubric quality
+- [docs/decision_taxonomy.md](docs/decision_taxonomy.md) — what labels like REPAIR / MODEL_ERROR mean
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+MIT. See [LICENSE](LICENSE).
