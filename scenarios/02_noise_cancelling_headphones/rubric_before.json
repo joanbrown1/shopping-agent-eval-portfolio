@@ -1,0 +1,31 @@
+{
+  "case_id": "shop_02_headphones",
+  "reference_answer": "AeroBud Max cheapest option",
+  "criteria": [
+    {
+      "id": "H1",
+      "text": "Recommends the cheapest headphones in the catalog.",
+      "required": true
+    },
+    {
+      "id": "H2",
+      "text": "Mentions battery life of at least 30 hours.",
+      "required": true
+    },
+    {
+      "id": "H3",
+      "text": "States the product has transparency or noise features.",
+      "required": true
+    },
+    {
+      "id": "H4",
+      "text": "Keeps price under $250.",
+      "required": true
+    },
+    {
+      "id": "H5",
+      "text": "Sounds decisive and confident.",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "shop_03_phone",
+  "reference_answer": "Pixel Grove 8 unlocked Android under $700",
+  "criteria": [
+    {
+      "id": "P1",
+      "text": "Recommends an Android phone priced at most $700.",
+      "required": true
+    },
+    {
+      "id": "P2",
+      "text": "Storage is at least 256 GB.",
+      "required": true
+    },
+    {
+      "id": "P3",
+      "text": "Phone is unlocked.",
+      "required": true
+    },
+    {
+      "id": "P4",
+      "text": "Assures the user it will work on their carrier.",
+      "required": true
+    },
+    {
+      "id": "P5",
+      "text": "Provides a clear purchase recommendation.",
+      "required": true
+    }
+  ]
+}

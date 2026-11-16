@@ -1,0 +1,35 @@
+{
+  "case_id": "shop_01_laptop",
+  "criteria": [
+    {
+      "id": "R1",
+      "text": "Recommended laptop costs less than $800.",
+      "required": true
+    },
+    {
+      "id": "R2",
+      "text": "Recommended laptop has at least 16 GB RAM.",
+      "required": true
+    },
+    {
+      "id": "R3",
+      "text": "Recommended laptop has at least 1 TB SSD.",
+      "required": true
+    },
+    {
+      "id": "R4",
+      "text": "Recommended laptop weighs less than 1.8 kg.",
+      "required": true
+    },
+    {
+      "id": "R5",
+      "text": "Recommended laptop must be from Apple.",
+      "required": true
+    },
+    {
+      "id": "R6",
+      "text": "Recommended item is in stock and meets the user's budget.",
+      "required": true
+    }
+  ]
+}

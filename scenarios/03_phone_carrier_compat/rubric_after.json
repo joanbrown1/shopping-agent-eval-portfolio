@@ -1,0 +1,36 @@
+{
+  "case_id": "shop_03_phone",
+  "decision": "REWORK_TASK",
+  "criteria": [
+    {
+      "id": "P1",
+      "text": "The response does not claim Carrier Wave 5G compatibility unless a carrier/compatibility tool record explicitly confirms it.",
+      "required": true,
+      "source": "Original prompt: only recommend if compatibility explicitly verified"
+    },
+    {
+      "id": "P2",
+      "text": "The response does not treat unlocked status as proof of Carrier Wave compatibility.",
+      "required": true,
+      "source": "Original prompt forbids assuming unlocked means compatible"
+    },
+    {
+      "id": "P3",
+      "text": "If compatibility is unverified, the response states that purchase cannot be recommended and identifies the missing compatibility check.",
+      "required": true,
+      "source": "Original prompt: if cannot verify, say so and do not recommend"
+    },
+    {
+      "id": "P4",
+      "text": "Any discussed candidate that is priced must be \u2264$700 and \u2265256 GB only as descriptive context, not as a completed purchase endorsement without P1.",
+      "required": true,
+      "source": "Original hard constraints remain relevant for candidate filtering"
+    },
+    {
+      "id": "P5",
+      "text": "The response does not invent a carrier compatibility result that is absent from the transcript.",
+      "required": true,
+      "source": "Evidence boundary: carrier.check_compatibility never called"
+    }
+  ]
+}

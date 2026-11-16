@@ -1,0 +1,42 @@
+{
+  "case_id": "shop_04_cart",
+  "decision": "REPAIR",
+  "criteria": [
+    {
+      "id": "C1",
+      "text": "Any stated checkout total includes catalog item prices plus the shipping quote (shipping not ignored).",
+      "required": true,
+      "source": "Original prompt: total checkout price including shipping"
+    },
+    {
+      "id": "C2",
+      "text": "Claimed totals are arithmetically consistent with visible catalog prices and shipping tool output.",
+      "required": true,
+      "source": "Evidence grounding / do not ignore shipping"
+    },
+    {
+      "id": "C3",
+      "text": "If recommending a full four-item set, checkout total is \u2264 $60; otherwise the response must not claim the full set is within budget.",
+      "required": true,
+      "source": "Original prompt: at most $60"
+    },
+    {
+      "id": "C4",
+      "text": "If the full set exceeds $60 with shipping, the response identifies an item to drop (or equivalent reduction) and shows the resulting total \u2264 $60.",
+      "required": true,
+      "source": "Original prompt fallback: say which item to drop first"
+    },
+    {
+      "id": "C5",
+      "text": "Calculator choice, when included, is the scientific SKU (CALC-SCI), not the basic calculator.",
+      "required": true,
+      "source": "Original prompt: calculator labeled scientific"
+    },
+    {
+      "id": "C6",
+      "text": "All recommended SKUs are in stock in the catalog.",
+      "required": true,
+      "source": "Original prompt: in-stock items"
+    }
+  ]
+}

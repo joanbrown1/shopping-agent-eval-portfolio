@@ -1,0 +1,42 @@
+{
+  "case_id": "shop_01_laptop",
+  "decision": "REPAIR",
+  "criteria": [
+    {
+      "id": "R1",
+      "text": "The recommended laptop's catalog price is at most $800.",
+      "required": true,
+      "source": "Original prompt: at most $800"
+    },
+    {
+      "id": "R2",
+      "text": "The recommended laptop has at least 16 GB RAM according to the catalog.",
+      "required": true,
+      "source": "Original prompt: at least 16 GB RAM"
+    },
+    {
+      "id": "R3",
+      "text": "The recommended laptop has at least 512 GB SSD according to the catalog.",
+      "required": true,
+      "source": "Original prompt: at least 512 GB SSD"
+    },
+    {
+      "id": "R4",
+      "text": "The recommended laptop weighs strictly less than 1.8 kg according to the catalog.",
+      "required": true,
+      "source": "Original prompt: strictly below 1.8 kg"
+    },
+    {
+      "id": "R5",
+      "text": "The recommended laptop is listed as in stock.",
+      "required": true,
+      "source": "Original prompt: do not recommend out-of-stock"
+    },
+    {
+      "id": "R6",
+      "text": "The final answer identifies model, price, RAM, SSD, and weight.",
+      "required": true,
+      "source": "Original prompt: include model, price and specs"
+    }
+  ]
+}

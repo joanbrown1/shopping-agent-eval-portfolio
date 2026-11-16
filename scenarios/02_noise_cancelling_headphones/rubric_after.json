@@ -1,0 +1,42 @@
+{
+  "case_id": "shop_02_headphones",
+  "decision": "REPAIR",
+  "criteria": [
+    {
+      "id": "H1",
+      "text": "Recommended product has ANC = Yes in the catalog (transparency-only does not count).",
+      "required": true,
+      "source": "Original prompt: active noise cancelling (ANC)"
+    },
+    {
+      "id": "H2",
+      "text": "Catalog battery life is at least 30 hours.",
+      "required": true,
+      "source": "Original prompt: at least 30 hours"
+    },
+    {
+      "id": "H3",
+      "text": "Catalog price is at most $250.",
+      "required": true,
+      "source": "Original prompt: at most $250"
+    },
+    {
+      "id": "H4",
+      "text": "Catalog lists wired support (3.5 mm or USB-C analog).",
+      "required": true,
+      "source": "Original prompt: must support wired use"
+    },
+    {
+      "id": "H5",
+      "text": "Recommended item is in stock.",
+      "required": true,
+      "source": "Original prompt: do not recommend out-of-stock"
+    },
+    {
+      "id": "H6",
+      "text": "Among rows satisfying H1\u2013H5, the recommendation is the lowest-priced option (Pulse Quiet 2).",
+      "required": true,
+      "source": "Original prompt: prefer cheapest that meets hard requirements"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "shop_04_cart",
+  "reference_answer": "Full four-item cart around $60",
+  "criteria": [
+    {
+      "id": "C1",
+      "text": "Includes notebooks, pens, calculator, and backpack.",
+      "required": true
+    },
+    {
+      "id": "C2",
+      "text": "Uses a scientific calculator rather than a basic one.",
+      "required": true
+    },
+    {
+      "id": "C3",
+      "text": "Cart merchandise subtotal is close to $60.",
+      "required": true
+    },
+    {
+      "id": "C4",
+      "text": "Mentions shipping somewhere in the answer.",
+      "required": true
+    },
+    {
+      "id": "C5",
+      "text": "Gives a complete cart the user can buy now.",
+      "required": true
+    }
+  ]
+}
